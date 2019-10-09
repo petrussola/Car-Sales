@@ -9,12 +9,17 @@ import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreators";
 
 export const Total = props => {
-  const { car } = props;
-  debugger
+  const { car, shop } = props;
 
   return (
     <div className="content">
-      <h4>Total Amount: ${car.price + props.additionalPrice}</h4>
+      <h4>
+        Total Amount: $
+        {car.price +
+          car.features.reduce((acc, id) => {
+            return acc + shop.find(shopItem => shopItem.id === id).price;
+          }, 0)}
+      </h4>
     </div>
   );
 };
