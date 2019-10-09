@@ -1,26 +1,22 @@
-import React from 'react';
+import React from "react";
 
 // connect
 
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 // action creators
 
-import * as actionCreators from '../state/actionCreators';
+import * as actionCreators from "../state/actionCreators";
 
 export const Total = props => {
-
-  const { carFeatures, addFeature, removeFeature } = props;
-
+  const { car } = props;
+  debugger
 
   return (
     <div className="content">
-      <h4>Total Amount: ${props.car.price + props.additionalPrice}</h4>
+      <h4>Total Amount: ${car.price + props.additionalPrice}</h4>
     </div>
   );
 };
 
-export default connect(
-  state => state,
-  actionCreators
-)(Total)
+export default connect(state => state)(Total);
