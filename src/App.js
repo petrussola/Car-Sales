@@ -9,9 +9,13 @@ import Total from "./components/Total";
 
 import * as reducers from "./state/reducers";
 
-// combine reducers and create store from redux library
+// redux library
 
 import { combineReducers, createStore } from "redux";
+
+// react-redux library
+
+import { Provider  } from 'react-redux';
 
 const App = () => {
   const state = {
