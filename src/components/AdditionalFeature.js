@@ -1,13 +1,28 @@
-import React from 'react';
+import React from "react";
 
-const AdditionalFeature = props => {
+// connect
+
+import { connect } from "react-redux";
+
+// action creators
+
+import * as actionCreators from "../state/actionCreators";
+
+export const AdditionalFeature = props => {
+  const { addFeature, feature } = props;
+
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
-      <button className="button">Add</button>
+      <button className="button" onClick={event => addFeature(feature)}>
+        Add
+      </button>
       {props.feature.name} (+{props.feature.price})
     </li>
   );
 };
 
-export default AdditionalFeature;
+export default connect(
+  state => state,
+  actionCreators
+)(AdditionalFeature);
