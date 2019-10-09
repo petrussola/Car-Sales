@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {App} from "./App";
+import { App } from "./App";
 
 import "bulma/css/bulma.css";
 import "./styles.scss";
@@ -27,7 +27,10 @@ const masterReducer = combineReducers({
 
 // store
 
-const store = createStore(masterReducer);
+const store = createStore(
+  masterReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(

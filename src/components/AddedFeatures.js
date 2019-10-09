@@ -6,14 +6,18 @@ import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreators";
 
 export const AddedFeatures = props => {
-  const { car } = props;
+  const { car, removeFeature } = props;
   return (
     <div className="content">
       <h6>Added features:</h6>
       {car.features.length ? (
         <ol type="1">
           {car.features.map(item => (
-            <AddedFeature key={item.id} feature={item} />
+            <AddedFeature
+              key={item.id}
+              feature={item}
+              removeFeature={removeFeature}
+            />
           ))}
         </ol>
       ) : (

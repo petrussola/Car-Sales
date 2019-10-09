@@ -1,15 +1,6 @@
 import React from "react";
 
-// connect
-
-import { connect } from "react-redux";
-
-// action creators
-
-import * as actionCreators from "../state/actionCreators";
-
-export const AdditionalFeature = props => {
-  const { addFeature, feature } = props;
+const AdditionalFeature = ({addFeature, feature}) => {
 
   return (
     <li>
@@ -17,12 +8,9 @@ export const AdditionalFeature = props => {
       <button className="button" onClick={event => addFeature(feature)}>
         Add
       </button>
-      {props.feature.name} (+{props.feature.price})
+      {feature.name} (+{feature.price})
     </li>
   );
 };
 
-export default connect(
-  state => state,
-  actionCreators
-)(AdditionalFeature);
+export default AdditionalFeature;
