@@ -1,15 +1,15 @@
-import * as types from './actionTypes';
+import * as types from "./actionTypes";
 
-export function addFeature(item) {
-    return {
-        type: types.ADD_FEATURE,
-        payload: { item }
-    }
+export function addFeature(id) {
+  return {
+    type: types.ADD_FEATURE,
+    payload: { id }
+  };
 }
 
-export function removeFeature(item) {
-    return {
-        type: types.REMOVE_FEATURE,
-        payload: { item }
-    }
+export function removeFeature(id) {
+  return {
+    type: types.REMOVE_FEATURE,
+    payload: { id }
+  };
 }

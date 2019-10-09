@@ -23,14 +23,14 @@ export function carReducer(car = initialCar, action) {
       /// add code
       return {
         ...car,
-        features: [...car.features, action.payload.item]
+        features: [...car.features, action.payload.id]
       };
     case types.REMOVE_FEATURE:
       /// add code
       return {
         ...car,
-        features: car.features.filter(item => {
-          return item.id !== action.payload.item.id;
+        features: car.features.filter(itemID => {
+          return itemID !== action.payload.id;
         })
       };
     default:
