@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
 
-const AdditionalFeature = props => {
+const AdditionalFeature = ({addFeature, feature}) => {
+
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
-      <button className="button">Add</button>
-      {props.feature.name} (+{props.feature.price})
+      <button className="button" onClick={event => addFeature(feature.id)}>
+        Add
+      </button>
+      {feature.name} (+{feature.price})
     </li>
   );
 };

@@ -1,11 +1,27 @@
-import React from 'react';
+import React from "react";
 
-const Total = props => {
+// connect
+
+import { connect } from "react-redux";
+
+// action creators
+
+import * as actionCreators from "../state/actionCreators";
+
+export const Total = props => {
+  const { car, shop } = props;
+
   return (
     <div className="content">
-      <h4>Total Amount: ${props.car.price + props.additionalPrice}</h4>
+      <h4>
+        Total Amount: $
+        {car.price +
+          car.features.reduce((acc, id) => {
+            return acc + shop.find(shopItem => shopItem.id === id).price;
+          }, 0)}
+      </h4>
     </div>
   );
 };
 
-export default Total;
+export default connect(state => state)(Total);
